@@ -1,0 +1,19 @@
+{% extends 'layout.jinja2' %}
+
+{% block subtitle %}{{ title }}{% endblock subtitle %}
+
+{% block page_content %}
+<div>
+{% for event in events %}
+    <div>
+        <p>{{ event.name }}</p>
+        <p>{{ event.description }}</p>
+        <p>{{ event.cost }}</p>
+        <p>{{ event.email }}</p>
+        <p>{{ event.phone }}</p>
+        <p>{{ event.contact_face }}</p>
+    </div>
+    <hr />
+{% endfor %}
+</div>
+{% endblock %}

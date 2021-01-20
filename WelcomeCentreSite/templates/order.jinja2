@@ -1,0 +1,18 @@
+{% extends 'layout.jinja2' %}
+
+{% block subtitle %}{{ title }}{% endblock subtitle %}
+
+{% block page_content %}
+<div>
+    <p>{{ info.name }}</p>
+    <p>{{ info.phone }}</p>
+    <p>{{ info.email }}</p>
+    <p>{{ info.contact_face }}</p>
+    <p>{{ info.event }}</p>
+    <p>{{ info.date }}</p>
+    <p>{{ info.time }}</p>
+    <p>{{ info.address }}</p>
+    <p>{{ info.count_participants }}</p>
+    <p>{{ info.note }}</p>
+</div>
+{% endblock %}

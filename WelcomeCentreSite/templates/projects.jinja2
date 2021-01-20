@@ -1,0 +1,18 @@
+{% extends 'layout.jinja2' %}
+
+{% block subtitle %}{{ title }}{% endblock subtitle %}
+
+{% block page_content %}
+<div>
+{% for project in projects %}
+    <div>
+        <p>{{ project.name }}</p>
+        <p>{{ project.description }}</p>
+        <p>{{ project.email }}</p>
+        <p>{{ project.phone }}</p>
+        <p>{{ project.contact_face }}</p>
+    </div>
+    <hr />
+{% endfor %}
+</div>
+{% endblock %}
