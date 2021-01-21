@@ -8,8 +8,8 @@ from sqlalchemy import Column, Date, Time, \
 class Event(BaseObject):
     __tablename__ = 'events'
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String, unique=True, nullable=False)
     description = Column(UnicodeText, default=u'')
     cost = Column(Integer, default=0)
     email = Column(String, nullable=False)
@@ -28,8 +28,8 @@ class Event(BaseObject):
 class Project(BaseObject):
     __tablename__ = 'projects'
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String, unique=True, nullable=False)
     description = Column(UnicodeText, default=u'')
     email = Column(String, nullable=False)
     phone = Column(String, nullable=False)
@@ -47,17 +47,22 @@ class Project(BaseObject):
 class Order(BaseObject):
     __tablename__ = 'orders'
 
-    id = Column(Integer, primary_key=True)
-    name = Column(Unicode(255), unique=True, nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(Unicode(255), nullable=False)
     phone = Column(String, nullable=False)
     email = Column(String, nullable=False)
     contact_face = Column(Unicode(255))
-    event = Column(Integer, ForeignKey('events.id'))  # ссылка на id мероприятия
+    event = Column(Integer, ForeignKey('events.id'))
     date = Column(Date, nullable=False)
     time = Column(Time, nullable=False)
     address = Column(String, nullable=False)
     count_participants = Column(Integer, default=0)
     note = Column(UnicodeText, default=u'')
+    status = Column(String, default=u'')
+
+    @classmethod
+    def get_last_order(cls):
+        return Session.query(Order).all()[-1]
 
     @classmethod
     def get_order_info(cls, order_id):

@@ -7,7 +7,7 @@ from pyramid.paster import get_appsettings, setup_logging
 from pyramid.scripts.common import parse_vars
 from pyramid_sqlalchemy import BaseObject as Base
 from pyramid_sqlalchemy import Session as DBSession
-from sqlalchemy import engine_from_config, Date, Time
+from sqlalchemy import engine_from_config
 import datetime
 from ..models import Event, Project, Order
 
@@ -22,7 +22,7 @@ def usage(argv):
 def test():
     all_events = Event.get_events()
     all_projects = Project.get_projects()
-    order = Order.get_order_info(0)
+    order = Order.get_order_info(1)
     print(all_events[0].contact_face)
     print(all_projects[1].name)
     print(order.address)
@@ -41,29 +41,30 @@ def main(argv=sys.argv):
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     with transaction.manager:
-        event = Event(id=0, name="День первый", description="Nehehe", cost=500,
+        event = Event(name="День первый", description="Nehehe", cost=500,
                       email="my@yandex.ru", phone="+792034", contact_face="Nowhere man")
-        event2 = Event(id=1, name="Выпускной", description="NeheheLflflfndnsnfsdkfsdf", cost=500,
+        event2 = Event(name="Выпускной", description="NeheheLflflfndnsnfsdkfsdf", cost=500,
                        email="my@yandex.ru", phone="+7920348546578", contact_face="Nowhere man")
         DBSession.add(event)
         DBSession.add(event2)
 
-        everest = Project(id=0, name="EVEREST", description="-", email="laura@laura.com",
+        everest = Project(name="EVEREST", description="-", email="laura@laura.com",
                           phone="909090", contact_face="Laura")
-        eco = Project(id=1, name="ECOFEST", description="ECOLOGYYYYY", email="yandex@yandex.com",
+        eco = Project(name="ECOFEST", description="ECOLOGYYYYY", email="yandex@yandex.com",
                       phone="000", contact_face="Tuna")
-        health = Project(id=2, name="Health", description="health and food", email="none.com",
+        health = Project(name="Health", description="health and food", email="none.com",
                          phone="103", contact_face="Yana")
         DBSession.add(everest)
         DBSession.add(eco)
         DBSession.add(health)
 
-        first_order = Order(id=0, name="EltsynCentre", phone="555", email="eltsyn@gmail.com",
+        first_order = Order(name="EltsynCentre", phone="555", email="eltsyn@gmail.com",
                             contact_face="Boris", event=1, date=datetime.date(year=2021, month=2, day=15),
                             time=datetime.time(hour=19, minute=30), address="Borisa Eltsina 5", count_participants=10)
-        second_order = Order(id=1, name="Maria", phone="555", email="Maria@gmail.com",
+        second_order = Order(name="Maria", phone="555", email="Maria@gmail.com",
                              contact_face="Maria", event=1, date=datetime.date(year=2001, month=1, day=2),
-                             time=datetime.time(hour=7, minute=59), address="Borisa Eltsina 19", count_participants=10000, note="many meny money")
+                             time=datetime.time(hour=7, minute=59), address="Borisa Eltsina 19",
+                             count_participants=10000, note="many meny money")
         DBSession.add(first_order)
         DBSession.add(second_order)
     test()
