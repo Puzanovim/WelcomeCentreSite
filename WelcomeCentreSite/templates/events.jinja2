@@ -1,11 +1,14 @@
 {% extends 'layout.jinja2' %}
 
-{% block subtitle %}{{ title }}{% endblock subtitle %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block page_content %}
-<div>
+    <div class="page-header">
+        <h1>Мероприятия Welcome Центра УрФУ</h1>
+    </div>
+<div class="row content_row">
 {% for event in events %}
-    <div>
+    <div class="col-md-3 col-md-offset-2 event">
         <p>{{ event.name }}</p>
         <p>{{ event.description }}</p>
         <p>{{ event.cost }}</p>
@@ -13,7 +16,6 @@
         <p>{{ event.phone }}</p>
         <p>{{ event.contact_face }}</p>
     </div>
-    <hr />
 {% endfor %}
 </div>
 {% endblock %}

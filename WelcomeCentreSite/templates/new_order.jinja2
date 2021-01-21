@@ -1,16 +1,81 @@
 {% extends 'layout.jinja2' %}
 
-{% block subtitle %}{{ title }}{% endblock subtitle %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block page_content %}
-<form action="{{ save_url }}" method="post">
-    <div class="form-group">
-        <label>
-            <textarea class="form-control" name="body" rows="10" cols="60"></textarea>
-        </label>
+    <div class="page-header">
+        <h1>Заявка на мероприятие</h1>
+    </div>
+    <form action="{{ save_url }}" method="post" class="form-horizontal" role="form">
+    <div class="form-group form-group-lg">
+        <label for="name" class="col-sm-3">Название организации:</label>
+        <div class="col-sm-4">
+            <input type="text" id="name" name="name" placeholder="Впишите название организации" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="phone" class="col-sm-3">Номер телефона: </label>
+        <div class="col-sm-4">
+            <input type="tel" id="phone" name="phone" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="email" class="col-sm-3">Email: </label>
+        <div class="col-sm-4">
+            <input type="email" id="email" name="email" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="contact_face" class="col-sm-3">Контактное лицо:</label>
+        <div class="col-sm-4">
+            <input type="text" id="contact_face" name="contact_face" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="event" class="col-sm-3">Мероприятие: </label>
+        <div class="col-sm-4">
+            <select id="event" name="event">
+                {% for event in events %}
+                    <option value="{{ event.id }}">{{ event.name }}</option>
+                {% endfor %}
+           </select>
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="date" class="col-sm-3">Дата: </label>
+        <div class="col-sm-4">
+            <input type="date" id="date" name="date" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="time" class="col-sm-3">Время: </label>
+        <div class="col-sm-4">
+            <input type="time" id="time" name="time" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="count_participants" class="col-sm-3">Количество участников: </label>
+        <div class="col-sm-4">
+            <input type="number" id="count_participants"
+                   name="count_participants" step="1" min="1" max="10000" value="1" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="address" class="col-sm-3">Адресс: </label>
+        <div class="col-sm-4">
+            <input type="text" id="address" name="address" size="40">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label for="note" class="col-sm-3">Примечание: </label>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="note" name="note" rows="5" cols="10"></textarea>
+        </div>
     </div>
     <div class="form-group">
-        <button type="submit" name="form.submitted" value="Save" class="btn btn-default">Save</button>
+        <div class="col-sm-offset-3 col-sm-4">
+            <button type="submit" name="form.submitted" value="Add order" class="btn btn-primary">Подать заявку</button>
+        </div>
     </div>
 </form>
 {% endblock %}

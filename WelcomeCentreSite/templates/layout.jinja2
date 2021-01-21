@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Custom styles for this scaffold -->
+{#    <link rel="stylesheet" href="../static/style.css"/>#}
+    <link rel="stylesheet" href="{{ request.static_url('WelcomeCentreSite:static/style.css') }}"/>
 
     <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -16,39 +18,84 @@
       <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
   </head>
-
   <body>
-
     {% block navbar %}
         <div class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle"
-                data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Flasky</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                </ul>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"
+                    data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img class="logo main-logo" src="../static/logo.png">
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/events">Мероприятия</a></li>
+                        <li><a href="/projects">Проекты</a></li>
+                        <li><a href="/new_order">Новая заявка</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     {% endblock navbar %}
 
-{% block content %}
-<div class="container">
-    <div class="page-header">
-        {% block page_content %}{% endblock %}
-    </div>
-</div>
-{% endblock %}
+    {% block content %}
+        <div class="container">
+            <div class="page">
+                {% block page_content %}{% endblock %}
+            </div>
+        </div>
+    {% endblock %}
 
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>Сайт Welcome Центра УрФУ</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 text-left">
+                    <h3>Карта сайта</h3>
+                    <ul>
+                      <li><a href="/">Главная</a></li>
+                      <li><a href="/events">Мероприятия</a></li>
+                      <li><a href="/projects">Проекты</a></li>
+                      <li><a href="/new_order">Новая заявка</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <address>
+                        620083, г. Екатеринбург,<br> пр. Ленина, д. 51, 120
+                    </address>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <p>Сайт задизайнен студией Puzanovim</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">VK</a>
+                        </li>
+                        <li>
+                            <a href="#">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="#">Facebook</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

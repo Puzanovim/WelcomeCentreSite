@@ -1,0 +1,180 @@
+.main-logo {
+    margin-top: -15px;
+    height: 50px;
+    width: 50px;
+}
+
+.content_row {
+    background-color: burlywood;
+}
+
+.event {
+    margin-bottom: 50px;
+    background-color: lemonchiffon;
+    border: 3px solid black;
+}
+
+.project {
+    margin-bottom: 50px;
+    background-color: lemonchiffon;
+    border: 3px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*body {*/
+/*    font-family: sans-serif;*/
+/*}*/
+
+/*.logo {*/
+/*    margin-top: -15px;*/
+/*    height: 50px;*/
+/*    width: 50px;*/
+/*}*/
+
+/*.page {*/
+/*    min-height: calc(100vh - 370px);*/
+/*}*/
+
+
+/*.event {*/
+/*    color: lemonchiffon;*/
+/*    background: black;*/
+/*}*/
+
+/*footer {*/
+    /*position: relative;*/
+    /*color: deepskyblue;*/
+    /*min-height: 300px;*/
+    /*background-color: #222;*/
+    /*border-top: #080808 solid 2px;*/
+
+    /*padding-top: 0px;*/
+    /*padding-bottom: 50px;*/
+    /*font-size: 18px;*/
+    /*line-height: 24px;*/
+/*}*/
+
+/*.footer-top::after {*/
+/*  display: table;*/
+/*  clear: both;*/
+/*  content: "";*/
+/*}*/
+
+/*.footer-title {*/
+/*    background-color: lemonchiffon;*/
+/*    float: top;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.footer-menu {*/
+/*    display: inline-block;*/
+/*    background-color: lemonchiffon;*/
+/*    float: left;*/
+/*    margin-top: 10px;*/
+/*    width: 150px;*/
+/*}*/
+
+/*.footer-menu h3 {*/
+/*    padding: 0;*/
+/*    margin: 0 0 20px;*/
+/*}*/
+
+/*.footer-menu ul {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  list-style: none;*/
+/*}*/
+
+/*.footer-menu li {*/
+/*  margin-bottom: 15px;*/
+/*}*/
+
+/*.footer-menu a {*/
+/*  color: deepskyblue;*/
+/*  text-decoration: none;*/
+/*  font-size: 18px;*/
+/*  line-height: 20px;*/
+/*}*/
+
+/*.footer-menu a:hover {*/
+/*  text-decoration: underline;*/
+/*}*/
+
+/*.footer-menu a:active {*/
+/*  text-decoration: none;*/
+/*  opacity: 0.3;*/
+/*}*/
+
+/*.footer-contacts {*/
+/*    display: inline-block;*/
+/*    background-color: lemonchiffon;*/
+/*    margin: 10px 40px;*/
+/*    float: left;*/
+/*    text-align: center;*/
+/*    width: 200px;*/
+/*}*/
+
+/*.footer-description {*/
+/*    margin-top: 10px;*/
+/*    display: inline-block;*/
+/*    background-color: lemonchiffon;*/
+/*    float: right;*/
+/*    width: 150px;*/
+/*}*/
+
+/*.footer-media {*/
+/*    position: absolute;*/
+/*    bottom: 20px;*/
+/*    left: 280px;*/
+/*    !*left: 50%;*!*/
+/*    background-color: lemonchiffon;*/
+/*    text-align: center;*/
+/*}*/
