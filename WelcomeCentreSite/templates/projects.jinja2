@@ -2,18 +2,32 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block page_content %}
-    <div class="page-header">
-        <h1>Проекты Welcome Центра УрФУ</h1>
+{% block header %}
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="project-heading">
+                    <h1>Проекты</h1>
+                    <h3 class="subheading text-center">Welcome Центра УрФУ</h3>
+                </div>
+            </div>
+        </div>
     </div>
+</header>
+{% endblock header %}
+
+{% block page_content %}
 <div class="row  content_row">
 {% for project in projects %}
-    <div class="col-md-3 col-md-offset-2 project">
-        <p>{{ project.name }}</p>
-        <p>{{ project.description }}</p>
-        <p>{{ project.email }}</p>
-        <p>{{ project.phone }}</p>
-        <p>{{ project.contact_face }}</p>
+    <div class="col-md-3 col-md-offset-2 element">
+        <div class="back_img" style="background-image: url('{{ project.promo_img }}');">
+            <h3>{{ project.name }}</h3>
+        </div>
+        <p class="text-left"><strong>Описание:</strong> {{ project.promo }}</p>
+        <p><strong>Контактное лицо:</strong> {{ project.contact_face }}</p>
+        <p><strong>Телефон:</strong> {{ project.phone }}</p>
+        <a href="/projects/{{ project.id }}" class="btn-info btn-sm">Подробнее</a>
     </div>
 {% endfor %}
 </div>

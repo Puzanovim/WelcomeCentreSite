@@ -2,12 +2,55 @@
 
 {% block title %}{{ title }}{% endblock %}
 
+{% block header %}
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="project-heading">
+                    <h1>{{ info.name }}</h1>
+                    <h3 class="subheading text-center">Проект Welcome Центра УрФУ</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
 {% block page_content %}
-<div>
-    <p>{{ info.name }}</p>
-    <p>{{ info.description }}</p>
-    <p>{{ info.email }}</p>
-    <p>{{ info.phone }}</p>
-    <p>{{ info.contact_face }}</p>
+<div class="col-lg-8 col-lg-offset-2">
+<div class="row internal-nav">
+    <div class="col-lg-6 text-left">
+        <a href="/projects" class="btn btn-success btn-lg">Назад</a>
+    </div>
+    <div class="col-lg-6 text-right">
+        <a href="/" class="btn btn-success btn-lg">На главную</a>
+    </div>
 </div>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <td class="col-lg-3">Название проекта</td>
+        <td class="col-lg-5">{{ info.name }}</td>
+    </tr>
+    <tr>
+        <td>Описание проекта</td>
+        <td>{{ info.description }}</td>
+    </tr>
+    <tr>
+        <td>Руководитель</td>
+        <td>{{ info.contact_face }}</td>
+    </tr>
+    <tr>
+        <td>Номер телефона</td>
+        <td>{{ info.phone }}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ info.email }}</td>
+    </tr>
+</table>
+</div>
+    <div class="text-center">
+        <img src="{{ info.promo_img }}" height="500">
+    </div>
 {% endblock %}
