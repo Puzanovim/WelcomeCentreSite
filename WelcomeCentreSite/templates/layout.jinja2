@@ -20,8 +20,8 @@
   </head>
   <body>
     {% block navbar %}
-        <div class="navbar navbar-inverse" role="navigation">
-            <div class="container">
+        <div class="navbar navbar-default navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle"
                     data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,11 +31,11 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img class="logo main-logo" src="../static/logo.png">
+                        Welcome Центр
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="/events">Мероприятия</a></li>
                         <li><a href="/projects">Проекты</a></li>
                         <li><a href="/new_order">Новая заявка</a></li>
@@ -45,9 +45,12 @@
         </div>
     {% endblock navbar %}
 
+    {% block header %}
+    {% endblock header %}
+
     {% block content %}
         <div class="container">
-            <div class="page">
+            <div class="page-content">
                 {% block page_content %}{% endblock %}
             </div>
         </div>
@@ -55,13 +58,14 @@
 
     <footer>
         <div class="container">
+            <hr>
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center footer-title">
                     <h3>Сайт Welcome Центра УрФУ</h3>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 text-left">
+                <div class="col-lg-3 text-left footer-menu">
                     <h3>Карта сайта</h3>
                     <ul>
                       <li><a href="/">Главная</a></li>
@@ -71,27 +75,37 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <address>
-                        620083, г. Екатеринбург,<br> пр. Ленина, д. 51, 120
-                    </address>
+                    <p class="text-justify">
+                        Welcome центр — это студенческий туристический кластер Уральского федерального университета.
+                        В структуру кластера входят множество туристических и развлекательных студенческих
+                        организаций УрФУ.
+                    </p>
+                    <address>620083, г. Екатеринбург, пр. Ленина, д. 51, 120</address>
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A787e22ad5c8371c4ec4f6bfd5806b9ec144faf0f13088a6ebf079ca00f8f2475&amp;width=575&amp;height=175&amp;lang=ru_RU&amp;scroll=true"></script>
                 </div>
                 <div class="col-lg-3 text-right">
-                    <p>Сайт задизайнен студией Puzanovim</p>
+                    <img src="../static/welcome.jpg" height="200">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 accounts">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">VK</a>
+                            <a href="https://vk.com/uralwelcome/" target="_blank">VK</a>
                         </li>
                         <li>
-                            <a href="#">Instagram</a>
+                            <a href="https://www.instagram.com/welcome_urfu/" target="_blank">Instagram</a>
                         </li>
                         <li>
-                            <a href="#">Facebook</a>
+                            <a href="https://www.facebook.com/UrFUnews/" target="_blank">Facebook</a>
                         </li>
                     </ul>
+                </div>
+            </div>
+            <div class="row my_copyright">
+                <div class="col-lg-12 text-right">
+                    <p class="copyright text-muted">Сайт задизайнен студией
+                        <a href="https://www.instagram.com/puzanovim" target="_blank">Puzanovim</a></p>
                 </div>
             </div>
         </div>
