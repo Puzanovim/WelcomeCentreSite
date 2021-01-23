@@ -2,19 +2,33 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block page_content %}
-    <div class="page-header">
-        <h1>Мероприятия Welcome Центра УрФУ</h1>
+{% block header %}
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="event-heading">
+                    <h1>Мероприятия</h1>
+                    <h3 class="subheading text-center">Welcome Центра УрФУ</h3>
+                </div>
+            </div>
+        </div>
     </div>
+</header>
+{% endblock header %}
+
+{% block page_content %}
 <div class="row content_row">
 {% for event in events %}
-    <div class="col-md-3 col-md-offset-2 event">
-        <p>{{ event.name }}</p>
-        <p>{{ event.description }}</p>
-        <p>{{ event.cost }}</p>
-        <p>{{ event.email }}</p>
-        <p>{{ event.phone }}</p>
-        <p>{{ event.contact_face }}</p>
+    <div class="col-md-3 col-md-offset-2 element">
+        <div class="back_img" style="background-image: url('{{ event.promo_img }}');">
+            <h3>{{ event.name }}</h3>
+        </div>
+        <p class="text-left"><strong>Описание:</strong> {{ event.promo }}</p>
+        <p><strong>Стоимость:</strong> {{ event.cost }}</p>
+        <p><strong>Контактное лицо:</strong> {{ event.contact_face }}</p>
+        <p><strong>Телефон:</strong> {{ event.phone }}</p>
+        <a href="/events/{{ event.id }}" class="btn-info btn-sm">Подробнее</a>
     </div>
 {% endfor %}
 </div>
