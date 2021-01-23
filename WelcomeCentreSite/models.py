@@ -1,5 +1,3 @@
-
-
 from pyramid_sqlalchemy import BaseObject, Session
 from sqlalchemy import Column, Date, Time, \
     Integer, Unicode, UnicodeText, ForeignKey, String
@@ -10,11 +8,13 @@ class Event(BaseObject):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True, nullable=False)
-    description = Column(UnicodeText, default=u'')
+    description = Column(UnicodeText, default=u'Нет данных')
+    promo = Column(String, default="Нет данных")
     cost = Column(Integer, default=0)
     email = Column(String, nullable=False)
     phone = Column(String, nullable=False)
     contact_face = Column(String, nullable=False)
+    promo_img = Column(String, nullable=True)
 
     @classmethod
     def get_event_info(cls, event_id):
@@ -30,10 +30,12 @@ class Project(BaseObject):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True, nullable=False)
-    description = Column(UnicodeText, default=u'')
+    description = Column(UnicodeText, default=u'Нет данных')
+    promo = Column(String, default="Нет данных")
     email = Column(String, nullable=False)
     phone = Column(String, nullable=False)
     contact_face = Column(String, nullable=False)
+    promo_img = Column(String, nullable=True)
 
     @classmethod
     def get_project_info(cls, project_id):
@@ -58,7 +60,6 @@ class Order(BaseObject):
     address = Column(String, nullable=False)
     count_participants = Column(Integer, default=0)
     note = Column(UnicodeText, default=u'')
-    status = Column(String, default=u'')
 
     @classmethod
     def get_last_order(cls):
