@@ -2,36 +2,97 @@
 
 {% block title %}{{ title }}{% endblock %}
 
+{% block header %}
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="main-heading">
+                    <h1>Welcome Центр УрФУ</h1>
+                    <hr class="small">
+                    <span class="subheading text-center">Любовь. Молодость. Туризм.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
 {% block page_content %}
-<div>
-<h1>Hello</h1>
-</div>
-    <div id="MyCarousel" class="carousel slide" data-ride="carousel">
+    <div class="row">
+        <div class="col-lg-3">
+            <img src="../static/founder.jpg" class="img-circle" height="300" width="300">
+        </div>
+        <div class="col-lg-8 col-lg-offset-1">
+            <blockquote>
+            <p>Welcome центр — это студенческий туристический кластер Уральского федерального
+                университета. В структуру кластера входят множество туристических и
+                развлекательных студенческих организаций УрФУ.</p>
+            <p>Welcome центр работает по 4 различным направлениям:</p>
+                <ol>
+                    <li>    студенческие путешествия внутри России и за границу;</li>
+                    <li>    организация досугастудентов в Екатеринбурге;</li>
+                    <li>    развитие экокультуры в молодежной среде;</li>
+                    <li>    Mass Media.</li>
+                </ol>
+                <p>Присоединяйтесь к нам!</p>
+            <small><cite title="Founder">Дарья Потехина</cite></small>
+        </blockquote>
+        </div>
+    </div>
+
+    <div class="row">
+    {% for project in projects[0:3] %}
+        <div class="col-md-4 top-element">
+            <h3><a href="/projects/{{ project.id }}">{{ project.name }}</a></h3>
+            <p class="text-justify">{{ project.description }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="row">
+    {% for event in events[0:3] %}
+        <div class="col-md-4 top-element">
+            <h3><a href="/events/{{ event.id }}">{{ event.name }}</a></h3>
+            <p class="text-justify">{{ event.description }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="myCarousel" data-slide-to="1"></li>
-            <li data-target="myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="../static/num1.png">
+                <img src="../static/carousel/1.jpg" alt="Главная площадь Артека">
                 <div class="carousel-caption">
-                    <h3>NUMBER 1</h3>
-                    <p>Some text about number 1</p>
+                    <h3>Урал</h3>
+                    <p>Мы — живем на Урале</p>
                 </div>
             </div>
             <div class="item">
-                <img src="../static/num2.jpg">
+                <img src="../static/carousel/3.jpg" alt="">
                 <div class="carousel-caption">
-                    <h3>NUMBER 2</h3>
-                    <p>Some text about number 2</p>
+                    <h3>Молодость</h3>
+                    <p>Мы — студенческая организация</p>
                 </div>
             </div>
             <div class="item">
-                <img src="../static/num3.png">
+                <img src="../static/carousel/4.jpg" alt="">
                 <div class="carousel-caption">
-                    <h3>NUMBER 3</h3>
-                    <p>Some text about number 3</p>
+                    <h3>Туризм</h3>
+                    <p>Мы – развиваем туризм</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../static/carousel/7.jpg" alt="">
+                <div class="carousel-caption">
+                    <h3>Любовь</h3>
+                    <p>Мы — любим то, что делаем</p>
                 </div>
             </div>
         </div>
