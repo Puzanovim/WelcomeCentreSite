@@ -1,4 +1,5 @@
 from pyramid.config import Configurator
+from .views import not_found
 
 
 def main(global_config, **settings):
@@ -18,6 +19,8 @@ def main(global_config, **settings):
     config.add_route('project', '/projects/{id}')
     config.add_route('order', '/orders/{id}')
     config.add_route('new_order', '/new_order')
+    config.add_route('404', '/page_not_found')
+    config.add_notfound_view(not_found)
 
     config.scan()
     return config.make_wsgi_app()

@@ -1,0 +1,24 @@
+{% extends 'layout.jinja2' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="error-heading">
+                    <h1>Страница не найдена</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
+{% block page_content %}
+<div class="row">
+    <p class="lead">К сожалению, страница не найдена :(</p>
+    <p>Вы можете вернуться на <a href="/">главную страницу</a></p>
+</div>
+{% endblock %}

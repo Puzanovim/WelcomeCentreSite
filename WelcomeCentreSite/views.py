@@ -12,7 +12,12 @@ def index_page(request):
     Главная страница
     """
     title = "Welcome Centre"
-    return {'title': title}
+    events = Event.get_events()
+    projects = Project.get_projects()
+    return {'title': title,
+            'events': events,
+            'projects': projects,
+            }
 
 
 @view_config(route_name="events", renderer="templates/events.jinja2")
@@ -43,7 +48,11 @@ def event_page(request):
     title = "Мероприятие"
     event_id = request.matchdict['id']
     event_info = Event.get_event_info(event_id)
-    return {'title': title, 'info': event_info}
+    if event_info:
+        return {'title': title, 'info': event_info}
+    else:
+        next_url = request.route_url('404')
+        return HTTPFound(location=next_url)
 
 
 @view_config(route_name="project", renderer="templates/project.jinja2")
@@ -54,7 +63,28 @@ def project_page(request):
     title = "Проект"
     project_id = request.matchdict['id']
     project_info = Project.get_project_info(project_id)
-    return {'title': title, 'info': project_info}
+    if project_info:
+        return {'title': title, 'info': project_info}
+    else:
+        next_url = request.route_url('404')
+        return HTTPFound(location=next_url)
+
+
+@view_config(route_name="404", renderer="templates/404.jinja2")
+def page_not_found(request):
+    """
+    Страница 404
+    """
+    title = "Страница не найдена – Ошибка 404"
+    return {'title': title}
+
+
+def not_found(request):
+    """
+    Страница 404
+    """
+    next_url = request.route_url('404')
+    return HTTPFound(location=next_url)
 
 
 @view_config(route_name="order", renderer="templates/order.jinja2")
@@ -65,7 +95,11 @@ def order_page(request):
     title = "Заказ"
     order_id = request.matchdict['id']
     order_info = Order.get_order_info(order_id)
-    return {'title': title, 'info': order_info}
+    if order_info:
+        return {'title': title, 'info': order_info}
+    else:
+        next_url = request.route_url('404')
+        return HTTPFound(location=next_url)
 
 
 @view_config(route_name="new_order", renderer="templates/new_order.jinja2")
